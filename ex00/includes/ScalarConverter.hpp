@@ -6,7 +6,7 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:28:02 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/20 13:36:57 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/21 11:52:48 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #define SCALAR_CONVERTER
 
 #include <iostream>
+#include <cstdlib>
+#include <cerrno>
+#include <cstring>
+#include <iomanip>
 
 class ScalarConverter {
 	private:
@@ -22,7 +26,7 @@ class ScalarConverter {
 		ScalarConverter &operator=(const ScalarConverter &src);
 		virtual ~ScalarConverter();
 	public:
-		static void convert(const std::string &literal);
+		static void convert(const char *literal);
 };
 
 #endif

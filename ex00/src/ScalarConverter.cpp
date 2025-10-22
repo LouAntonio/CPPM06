@@ -6,7 +6,7 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:42:43 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/21 11:50:45 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/22 10:48:35 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,30 +66,25 @@ void 	ScalarConverter::convert(const char *literal) {
 	double		toDouble = std::strtod(literal, &end_ptr);
 
 	if (errno == ERANGE)
-	{
-		std::cout << "Out of range!" << std::endl;
 		impossible();
-	}
 	else if (literal == end_ptr)
-	{
-		std::cout << "Impossible to convert!" << std::endl;
 		impossible();
-	}
 	else if (*end_ptr != '\0' && *end_ptr != 'f')
-	{
-		std::cout << "Inválid input (characters after value)!" << std::endl;
 		impossible();
-	}
 	else {
-		int value = static_cast<int>(toDouble);
+		int toInt = static_cast<int>(toDouble);
 		std::cout << std::fixed << std::setprecision(1);
 
 		std::cout << "Double: " << toDouble << std::endl;
-		std::cout << "Int: " << static_cast<int>(toDouble) << std::endl;
 		std::cout << "Float: " << static_cast<float>(toDouble) << "f" << std::endl;
-		if (!(value >= 32 && value <= 126))
+
+		if (toDouble > std::numeric_limits<int>::max() || toDouble < std::numeric_limits<int>::min())
+			std::cout << "Int: Impossible" << std::endl;
+		else
+			std::cout << "Int: " << toInt << std::endl;
+		if (!(toInt >= 32 && toInt <= 126))
 			std::cout << "Char: Impossible" << std::endl;
 		else
-			std::cout << "Char: " << (char)value << std::endl;
+			std::cout << "Char: " << (char)toInt << std::endl;
 	}
 }

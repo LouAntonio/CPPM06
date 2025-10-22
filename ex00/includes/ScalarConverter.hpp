@@ -6,7 +6,7 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:28:02 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/21 11:52:48 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/22 10:41:55 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <cerrno>
 #include <cstring>
 #include <iomanip>
+#include <limits>
 
 class ScalarConverter {
 	private:

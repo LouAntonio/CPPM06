@@ -6,7 +6,7 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 13:33:40 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/23 10:42:09 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/23 11:28:51 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,26 @@
 
 int main(void)
 {
-	Data	dados;
-	dados.name = "LouAntonio";
-	uintptr_t teste = 123;
-
-	std::cout << "Teste = " << teste << std::endl;
-	teste = Serializer::serialize(&dados);
-	std::cout << "Teste = " << teste << std::endl;
+	Data	data;
+	data.name = "LouAntonio";
+	data.value = 42;
 	
-	std::cout << "Dados = " << dados.name << std::endl;
-	Data* ptr = Serializer::deserialize(teste);
-	dados = *ptr;
-	std::cout << "Dados = " << dados.name << std::endl;
+	std::cout << "Before serialization:\nName: " << data.name << "\nValue: " << data.value << std::endl;
+	uintptr_t test = Serializer::serialize(&data);
+	
+	std::cout << "\n---\n" << std::endl;
+	
+	Data* ptr = Serializer::deserialize(test);
+	data = *ptr;
+	std::cout << "After deserialization:\nName: " << data.name << "\nValue: " << data.value << std::endl;
+	
+	std::cout << "\n---\n" << std::endl;
+
+	std::cout << "Values:\nptr: " << test << " | data: " << &data << std::endl;
+	if (ptr == &data)
+		std::cout << "They are the same!" << std::endl;
+	else
+		std::cout << "They are not the same!" << std::endl;
 
 	return 0;
 }

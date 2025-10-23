@@ -6,7 +6,7 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 11:39:33 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/23 15:07:49 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/23 15:11:11 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <ctime>
 
 Base* generate(void) {
-	int debug = 1;
+	int debug = 0;
 	std::srand(std::time(0));
 	int escolha = std::rand() % 3;
 
@@ -52,15 +52,16 @@ void identify(Base* p) {
 }
 
 void	identify(Base& p) {
-	if (dynamic_cast<A&>(p))
+	Base* ptr = &p;
+
+	if (dynamic_cast<A*>(ptr))
 		std::cout << "A" << std::endl;
-	else if (dynamic_cast<B&>(p))
+	else if (dynamic_cast<B*>(ptr))
 		std::cout << "B" << std::endl;
-	else if (dynamic_cast<C&>(p))
+	else if (dynamic_cast<C*>(ptr))
 		std::cout << "C" << std::endl;
 	else
 		std::cout << "Desconhecido" << std::endl;
-	(void)p;
 }
 
 int main(void) {

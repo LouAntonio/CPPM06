@@ -6,14 +6,13 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:57:00 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/22 15:18:41 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/23 10:26:00 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER
 #define SERIALIZER
 
-#include <iostream>
 #include "./Data.hpp"
 
 class Serializer {

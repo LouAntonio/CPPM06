@@ -6,7 +6,7 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 13:33:37 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/22 15:46:12 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/23 10:20:15 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ Serializer::~Serializer() {
 }
 
 uintptr_t Serializer::serialize(Data* ptr) {
-    return reinterpret_cast<uintptr_t>(ptr);
+	return reinterpret_cast<uintptr_t>(ptr);
 }
 
 Data* Serializer::deserialize(uintptr_t row) {
-    
+	return reinterpret_cast<Data*>(row);
 }

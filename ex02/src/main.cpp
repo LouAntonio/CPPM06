@@ -6,7 +6,7 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 11:39:33 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/24 10:46:12 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/24 11:12:35 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ int main(void) {
 	Base	*base = generate();
 	identify(base);
 	identify(*base);
+	delete base;
 	return 0;
 }

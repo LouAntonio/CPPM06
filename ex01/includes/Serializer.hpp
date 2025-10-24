@@ -6,12 +6,12 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:57:00 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/23 10:26:00 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/24 10:49:46 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER
-#define SERIALIZER
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
 #include "./Data.hpp"
 

@@ -6,12 +6,12 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:28:02 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/22 10:41:55 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/24 10:47:15 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_CONVERTER
-#define SCALAR_CONVERTER
+#ifndef SCALAR_CONVERTER_HPP
+#define SCALAR_CONVERTER_HPP
 
 #include <iostream>
 #include <cstdlib>

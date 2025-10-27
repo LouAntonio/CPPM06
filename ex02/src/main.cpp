@@ -6,7 +6,7 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 11:39:33 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/24 11:12:35 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/27 10:29:04 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ Base* generate(void) {
 
 	switch (escolha) {
 		case 0:
-			if (debug) std::cout << "O tipo original é A" << std::endl;
+			if (debug) std::cout << "The original class is A" << std::endl;
 			return new A();
 		case 1:
-			if (debug) std::cout << "O tipo original é B" << std::endl;
+			if (debug) std::cout << "The original class is B" << std::endl;
 			return new B();
 		case 2:
-			if (debug) std::cout << "O tipo original é C" << std::endl;
+			if (debug) std::cout << "The original class is C" << std::endl;
 			return new C();
 		default:
-			if (debug) std::cout << "O tipo original é Base" << std::endl;
-			return new Base();
+			if (debug) std::cout << "The original class is NULL" << std::endl;
+			return NULL;
 	}
 }
 
@@ -73,7 +73,7 @@ void	identify(Base& p) {
 		return;
 	} catch (std::exception &e) { }
 
-	std::cout << "Base" << std::endl;
+	std::cout << "Unknown" << std::endl;
 }
 
 int main(void) {

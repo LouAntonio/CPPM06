@@ -6,7 +6,7 @@
 /*   By: lantonio <lantonio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:42:43 by lantonio          #+#    #+#             */
-/*   Updated: 2025/10/22 10:48:35 by lantonio         ###   ########.fr       */
+/*   Updated: 2025/10/28 12:03:07 by lantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,41 +39,63 @@ void	impossible() {
 }
 
 int		isSpecialCase(std::string literal) {
-	if (literal == "-inff" || literal == "+inff"
-		|| literal == "nanf" || literal == "-inf"
-		|| literal == "+inf" || literal == "nan")
+	if (literal == "nan" || literal == "nanf"
+		|| literal == "-nan" || literal == "-nanf"
+		|| literal == "+nan" || literal == "+nanf"
+		|| literal == "-inf" || literal == "-inff"
+		|| literal == "+inf" || literal == "+inff")
 	{
 		std::cout << "Char: Impossible" << std::endl;
 		std::cout << "Int: Impossible" << std::endl;
-		if (literal == "nan" || literal == "nanf")
+		if (literal == "nan" || literal == "nanf" || literal == "-nan" || literal == "-nanf" || literal == "+nan" || literal == "+nanf")
 		{
-			std::cout << "Floar: nanf" << std::endl;
+			std::cout << "Float: nanf" << std::endl;
 			std::cout << "Double: nan" << std::endl;
-		} else {
-			std::cout << "Floar: impossible" << std::endl;
-			std::cout << "Double: impossible" << std::endl;
+		} else if (literal == "+inf" || literal == "+inff") {
+			std::cout << "Double: +inf" << std::endl;
+			std::cout << "Float: +inff" << std::endl;
+		} else if (literal == "-inf" || literal == "-inff") {
+			std::cout << "Double: -inf" << std::endl;
+			std::cout << "Float: -inff" << std::endl;
 		}
 		return 1;
 	}
 	return 0;
 }
 
-void 	ScalarConverter::convert(const char *literal) {
-	char		*end_ptr;
+int	isChar(const char *literal)
+{
+	if (std::strlen(literal) > 1)
+		return 0;
+	char	c = literal[0];
 
+	std::cout << "Char: " << c << std::endl;
+	std::cout << "Int: " << static_cast<int>(c) << std::endl;
+	std::cout << "Double: " << static_cast<double>(c) << std::endl;
+	std::cout << "Float: " << static_cast<float>(c) << "f" << std::endl;
+	return 1;
+}
+
+void 	ScalarConverter::convert(const char *literal)
+{	
 	if (isSpecialCase(literal)) return;
 	errno = 0;
+	char		*end_ptr;
 	double		toDouble = std::strtod(literal, &end_ptr);
 
+	std::cout << std::fixed << std::setprecision(1);
+	if (isChar(literal))
+		return;
 	if (errno == ERANGE)
 		impossible();
-	else if (literal == end_ptr)
+	else if (end_ptr == literal || *literal == '\0')
 		impossible();
 	else if (*end_ptr != '\0' && *end_ptr != 'f')
 		impossible();
+	else if (*end_ptr != '\0' && *(end_ptr + 1) != '\0')
+		impossible();
 	else {
 		int toInt = static_cast<int>(toDouble);
-		std::cout << std::fixed << std::setprecision(1);
 
 		std::cout << "Double: " << toDouble << std::endl;
 		std::cout << "Float: " << static_cast<float>(toDouble) << "f" << std::endl;
